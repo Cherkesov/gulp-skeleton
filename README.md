@@ -19,3 +19,5 @@ Run server for live reloading
 - gulp-connect
 - gulp-livereload
 - gulp-autoprefixer
+- jade
+- gulp-jade
