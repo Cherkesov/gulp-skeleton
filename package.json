@@ -1,0 +1,17 @@
+{
+  "name": "kitkat-frontend",
+  "version": "1.0.0",
+  "author": {
+    "name": "Cherkesov Sergey",
+    "email": "go.for.broke@gmail.com"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-connect": "^3.2.2",
+    "gulp-jade": "^1.1.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-sass": "^2.2.0",
+    "gulp-watch": "^4.3.5"
+  }
+}
