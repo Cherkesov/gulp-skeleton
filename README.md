@@ -8,3 +8,4 @@ Simple skeleton for frontend projects
 - gulp-watch
 - gulp-connect
 - gulp-livereload
+- gulp-autoprefixer

@@ -6,7 +6,8 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     watch = require('gulp-watch'),
     connect = require('gulp-connect'),
-    livereload = require('gulp-livereload');
+    livereload = require('gulp-livereload'),
+    autoprefixer = require('gulp-autoprefixer');
 
 gulp.task('html', function () {
     gulp.src('app/**/*.html')
@@ -17,6 +18,12 @@ gulp.task('html', function () {
 gulp.task('sass', function () {
     gulp.src('app/scss/**/*.scss')
         .pipe(sass())
+        .pipe(
+            autoprefixer({
+                browsers: ['last 15 versions'],
+                cascade: false
+            })
+        )
         .pipe(gulp.dest('build/css'))
         .pipe(connect.reload());
 });
