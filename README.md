@@ -2,7 +2,17 @@
 
 Simple skeleton for frontend projects
 
-## Add and setup
+## How to
+
+Build project:
+
+    $ gulp html sass
+
+Run server for live reloading
+
+    $ gulp
+
+## Added and configured
 
 - gulp-sass
 - gulp-watch
