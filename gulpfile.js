@@ -11,18 +11,12 @@ var gulp = require('gulp'),
     jade = require('jade'),
     gulpJade = require('gulp-jade');
 
-gulp.task('html', function () {
-    gulp.src('app/**/*.html')
-        .pipe(gulp.dest('build'))
-        .pipe(connect.reload());
-});
-
 gulp.task('jade', function () {
     var YOUR_LOCALS = {
         name: 'Vasya'
     };
 
-    gulp.src('./app/*.jade')
+    gulp.src('./app/templates/**/*.jade')
         .pipe(gulpJade({
             jade: jade,
             pretty: true,
@@ -53,9 +47,8 @@ gulp.task('connect', function () {
 });
 
 gulp.task('watch', function () {
-    gulp.watch('app/**/*.html', ['html']);
     gulp.watch('app/scss/**/*.scss', ['sass']);
-    gulp.watch('app/*.jade', ['jade']);
+    gulp.watch('app/**/*.jade', ['jade']);
 });
 
 gulp.task('default', ['connect', 'watch']);

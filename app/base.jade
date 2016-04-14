@@ -1,0 +1,26 @@
+doctype html
+html
+    head
+        title Test page with jade!!!
+        link(rel="stylesheet", href="css/styles.css")
+    body
+        div#wrap
+            block page
+                h1.page_title
+                    block page_title
+                h2.page_subtitle
+                    block page_subtitle
+
+                ul#main_menu
+                    li
+                        a(href="index.html") Home page
+                    li
+                        a(href="catalog.html") Catalog
+                    li
+                        a(href="about.html") About us
+                    li
+                        a(href="contacts.html") Contacts
+
+                div#main_content
+                    block main_content
+                        | Some text
