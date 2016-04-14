@@ -6,7 +6,7 @@ Simple skeleton for frontend projects
 
 Build project:
 
-    $ gulp html sass
+    $ gulp sass
 
 Run server for live reloading
 
