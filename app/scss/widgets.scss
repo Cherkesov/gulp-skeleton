@@ -1,0 +1,13 @@
+/* Widgets */
+
+.btn {
+  display: inline-block;
+  padding: 4px 12px;
+  min-width: 120px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.btn.btn__orange {
+  background: #cac818;
+}

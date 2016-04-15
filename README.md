@@ -2,13 +2,13 @@
 
 Simple skeleton for frontend projects
 
-## How to
+## Quick start
 
-Build project:
+Install dependencies
 
-    $ gulp sass
+    $ npm install
 
-Run server for live reloading
+Run server for live reloading and build project
 
     $ gulp
 

@@ -1,6 +1,5 @@
-/**
- * Created by GoForBroke on 05.04.2016.
- */
+'use strict';
+
 
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
@@ -8,6 +7,8 @@ var gulp = require('gulp'),
     connect = require('gulp-connect'),
     livereload = require('gulp-livereload'),
     autoprefixer = require('gulp-autoprefixer'),
+    concat = require('gulp-concat'),
+    rename = require('gulp-rename'),
     jade = require('jade'),
     gulpJade = require('gulp-jade');
 
@@ -35,6 +36,8 @@ gulp.task('sass', function () {
                 cascade: false
             })
         )
+        .pipe(concat('dist'))
+        .pipe(rename('styles.min.css'))
         .pipe(gulp.dest('build/css'))
         .pipe(connect.reload());
 });
@@ -51,4 +54,9 @@ gulp.task('watch', function () {
     gulp.watch('app/**/*.jade', ['jade']);
 });
 
-gulp.task('default', ['connect', 'watch']);
+gulp.task('default', [
+    'jade',
+    'sass',
+    'connect',
+    'watch'
+]);
