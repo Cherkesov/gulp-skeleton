@@ -11,6 +11,11 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     jade = require('jade'),
     gulpJade = require('gulp-jade');
+var exec = require('child_process').exec;
+
+gulp.task('clean', function () {
+    exec('rm -rf ./build/*');
+});
 
 gulp.task('jade', function () {
     var YOUR_LOCALS = {
@@ -55,6 +60,7 @@ gulp.task('watch', function () {
 });
 
 gulp.task('default', [
+    'clean',
     'jade',
     'sass',
     'connect',
