@@ -19,5 +19,7 @@ Run server for live reloading and build project
 - gulp-connect
 - gulp-livereload
 - gulp-autoprefixer
+- gulp-concat
+- gulp-rename
 - jade
 - gulp-jade
