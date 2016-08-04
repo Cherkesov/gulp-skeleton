@@ -1,8 +1,11 @@
 doctype html
 html
     head
-        title Test page with jade!!!
+        title #{project['title']}
         link(rel="stylesheet", href="css/styles.min.css")
+
+        block head_scripts
+            script(src='js/lib.js')
     body
         div#wrap
             block page
@@ -10,6 +13,7 @@ html
                     block page_title
                 h2.page_subtitle
                     block page_subtitle
+                        | #{project['subtitle']}
 
                 ul#main_menu
                     li
@@ -20,6 +24,8 @@ html
                         a(href="about.html") About us
                     li
                         a(href="contacts.html") Contacts
+                    li
+                        a(href="login.html") Login
 
                 div#main_content
                     block main_content
