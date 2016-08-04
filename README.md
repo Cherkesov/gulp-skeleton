@@ -8,6 +8,10 @@ Install dependencies
 
     $ npm install
 
+Install gulp globally
+
+    $ npm install gulp -g
+
 Run server for live reloading and build project
 
     $ gulp
