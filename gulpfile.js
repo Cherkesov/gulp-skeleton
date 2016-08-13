@@ -13,9 +13,9 @@ var gulp = require('gulp'),
 var exec = require('child_process').exec;
 var distLocation = './build';
 
-/*gulp.task('clean', function () {
-    exec('rm -rf ./build/!*');
-});*/
+gulp.task('clean', function () {
+    exec('rm -rf ./build/*');
+});
 
 gulp.task('jade', function () {
     var YOUR_LOCALS = {
@@ -48,15 +48,22 @@ gulp.task('js', function () {
         .pipe(connect.reload());
 });
 
+gulp.task('image', function () {
+    exec('rm -rf ' + distLocation + '/images');
+    gulp.src('./app/images/**/*.{png,jpg,jpeg,gif,ico}')
+        .pipe(gulp.dest(distLocation + '/images/'))
+        .pipe(connect.reload());
+});
+
 gulp.task('sass', function () {
     gulp.src('app/scss/**/*.scss')
         .pipe(sass())
         .pipe(
-            autoprefixer({
-                browsers: ['last 15 versions'],
-                cascade: false
-            })
-        )
+        autoprefixer({
+            browsers: ['last 15 versions'],
+            cascade: false
+        })
+    )
         .pipe(concat('dist'))
         .pipe(rename('styles.min.css'))
         .pipe(cleanCSS({compatibility: 'ie8'}))
@@ -74,14 +81,19 @@ gulp.task('connect', function () {
 gulp.task('watch', function () {
     gulp.watch('app/templates/**/*.html', ['html']);
     gulp.watch('app/js/**/*.js', ['js']);
+    gulp.watch('app/images/**/*.js', ['image']);
     gulp.watch('app/scss/**/*.scss', ['sass']);
     gulp.watch('app/**/*.jade', ['jade']);
+    gulp.watch('app/**/*.html', ['html']);
 });
 
+gulp.task('build', ['clean', 'html', 'js', 'image', 'jade', 'sass']);
+
 gulp.task('default', [
-    //'clean',
+    'clean',
     'html',
     'js',
+    'image',
     'jade',
     'sass',
     'connect',
