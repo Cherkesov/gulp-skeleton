@@ -14,7 +14,7 @@ var exec = require('child_process').exec;
 var distLocation = './build';
 
 gulp.task('clean', function () {
-    exec('rm -rf ./build/*');
+    exec('rm -rf ' + distLocation + '/*');
 });
 
 gulp.task('jade', function () {
@@ -90,7 +90,7 @@ gulp.task('watch', function () {
 gulp.task('build', ['clean', 'html', 'js', 'image', 'jade', 'sass']);
 
 gulp.task('default', [
-    'clean',
+    //'clean',
     'html',
     'js',
     'image',
